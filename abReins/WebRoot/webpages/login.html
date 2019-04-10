@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>车站票务综合分析管理平台</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/font-googleapis.css" />
+
+<!-- ace styles -->
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+<style type="text/css">
+body {
+	font-family: "微软雅黑";
+	overflow-x: hidden
+}
+
+textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"]
+	{
+	border-radius: 5 !important;
+	color: #858585;
+	background-color: #f1f1f1;
+	border: 1px solid #d5d5d5;
+	padding: 5px 4px;
+	line-height: 1.2;
+	font-size: 14px;
+	font-family: inherit;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	-webkit-transition-duration: .1s;
+	transition-duration: .1s
+}
+
+textarea:hover,input[type="text"]:hover,input[type="password"]:hover,input[type="datetime"]:hover,input[type="datetime-local"]:hover,input[type="date"]:hover,input[type="month"]:hover,input[type="time"]:hover,input[type="week"]:hover,input[type="number"]:hover,input[type="email"]:hover,input[type="url"]:hover,input[type="search"]:hover,input[type="tel"]:hover,input[type="color"]:hover
+	{
+	border-color: 0px solid #1976bc
+}
+
+textarea:active,input[type="text"]:active,input[type="password"]:active,input[type="datetime"]:active,input[type="datetime-local"]:active,input[type="date"]:active,input[type="month"]:active,input[type="time"]:active,input[type="week"]:active,input[type="number"]:active,input[type="email"]:active,input[type="url"]:active,input[type="search"]:active,input[type="tel"]:active,input[type="color"]:active
+	{
+	background-color: #FFFFFF
+}
+
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="time"]:focus,input[type="week"]:focus,input[type="number"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="color"]:focus
+	{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ededed+0,ffffff+96 */
+	background: rgb(237, 237, 237); /* Old browsers */
+	background: -moz-linear-gradient(top, rgb(237, 237, 237) 0%,
+		rgb(255, 255, 255) 96%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgb(237, 237, 237) 0%,
+		rgb(255, 255, 255) 96%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgb(237, 237, 237) 0%,
+		rgb(255, 255, 255) 96%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed',
+		endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+	border: 0px solid#;
+}
+
+input[type=checkbox].ace:hover+.lbl::before,input[type=radio].ace:hover+.lbl::before,input[type=checkbox].ace+.lbl:hover::before,input[type=radio].ace+.lbl:hover::before
+	{
+	border-color: #428bca
+}
+
+.distance {
+	
+}
+
+@media only screen and (min-width:1920px) {
+	.distance {
+		margin-left: 900px;
+		margin-top: 100px;
+		!
+		important
+	}
+	
+	
+	@media only screen and (min-width:1920px) {
+		.login-layout {
+			background-color: #000000;
+			background-position: center center;!important
+		}
+	}
+}
+</style>
+</head>
+<body class="login-layout">
+	<div class="main-container">
+		<div class="">
+			<div style="height:20px;"></div>
+			<div class="row">
+				<div class="col-sm-5 col-md-5 col-sm-offset-6 distance">
+					<div class="login-container">
+						<div class="position-relative">
+							<div id="login-box" class=" login-box1 widget-box visible  no-border ">
+								<div class="login-new">
+									<div class="widget-main ">
+										<div class="center">
+											<h3>
+												<img src="assets/css/images/logo.jpg"></img>
+											</h3>
+											<h3>
+												<img src="assets/css/images/font-png.png"></img>
+											</h3>
+										</div>
+										<h5 class="header  lighter bigger">
+											<i class="icon-user"></i> 用户登录
+										</h5>
+										<div class="space-6"></div>
+										<form id="login-form">
+											<fieldset>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right" style="margin-top:10px;">
+														<input type="text" id="login_username" name="username" class="form-control form-control1 tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="用户账号" />
+														<i class="icon-user"></i>
+													</span>
+												</label>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right ">
+														<input id="login_password" name="password" type="password" class="form-control form-control1 tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="密码" />
+														<input id="login_grant_type" name="grant_type" type="hidden" value="password" />
+														<input id="login_client_id" name="client_id" type="hidden" value="t01" />
+														<input id="login_client_secret" name="client_secret" type="hidden" value="t02" />
+														<i class="icon-lock"></i>
+													</span>
+												</label>
+												<div class="clearfix" style="text-align:right;">
+													<button id="login-signin-submit" type="button" class="width-100 pull-right btn btn-sm btn-primary" style=" font-size:16px;">
+														<i class="icon-key"></i> 登录
+													</button>
+												</div>
+												<div class="space-4"></div>
+											</fieldset>
+										</form>
+									</div>
+									<!-- /widget-main -->
+									<div class="toolbar clearfix login-new1">
+										<div></div>
+										<!-- 
+										<div>
+											<a href="#" onClick="show_box('forgot-box'); return false;" class="forgot-password-link" style=" color:#ffffff"> <i class="icon-arrow-left"></i> 修改密码
+											</a>
+										</div>
+										 -->
+									</div>
+								</div>
+								<!-- /widget-body -->
+							</div>
+							<!-- /login-box -->
+							<div id="forgot-box" class="login-box1 forgot-box widget-box no-border">
+								<div class="login-new">
+									<div class="widget-main ">
+										<div class="center">
+											<h3>
+												<img src="assets/css/images/font-png.png"></img>
+											</h3>
+										</div>
+										<h5 class="header  lighter bigger">
+											<i class="icon-key"></i> 修改密码
+										</h5>
+										<form id="changepd-form">
+											<fieldset>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" id="changepd_username" name="username" class="form-control tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="用户账号" />
+														<i class="icon-user"></i>
+													</span>
+												</label>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right ">
+														<input id="changepd_password" name="password" type="password" class="form-control tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="原密码" />
+														<i class="icon-lock"></i>
+													</span>
+												</label>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input id="changepd_newpassword" name="newpassword" type="password" class="form-control tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="新密码" />
+														<i class="icon-retweet"></i>
+													</span>
+												</label>
+												<label class="block clearfix">
+													<span class="block input-icon input-icon-right ">
+														<input id="changepd_repeatpassword" name="repeatpassword" type="password" class="form-control tooltip-warning" data-rel="tooltip" data-placement="top" placeholder="确认新密码" />
+														<i class="icon-retweet"></i>
+													</span>
+												</label>
+												<div class="clearfix" style="text-align:right;">
+													<button id="changepd-save-button" type="button" class="width-100 pull-right btn btn-sm btn-danger" style=" font-size:16px;">
+														<i class="icon-lightbulb"></i> 确认
+													</button>
+												</div>
+											</fieldset>
+										</form>
+									</div>
+									<!-- /widget-main -->
+									<div class="toolbar clearfix login-new1">
+										<div></div>
+										<div>
+											<a href="#" onClick="show_box('login-box'); return false;" class="forgot-password-link" style=" color:#ffffff"> <i class="icon-arrow-left"></i> 返回
+											</a>
+										</div>
+									</div>
+								</div>
+								<!-- /forgot-box -->
+							</div>
+							<!-- /position-relative -->
+						</div>
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+		</div>
+		</div>
+		<!-- /.main-container -->
+		<!-- basic scripts -->
+		<script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.base64.js"></script>
+		<script type="text/javascript" src="assets/js/validator/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="assets/js/validator/messages_zh.js"></script>
+		<script type="text/javascript" src="base/security/js/ajaxjson.js"></script>
+		<script type="text/javascript" src="base/security/js/login.js"></script>
+</body>
+</html>

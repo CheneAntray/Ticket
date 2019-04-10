@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>车站票务综合分析管理平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" href="assets/css/ztree/zTreeStyle/zTreeStyle.css"
+	type="text/css">
+</head>
+<body>
+	<form id="viewquery-form">
+		<div class="row">
+			<div class="widget-box" style="border: 3px solid #CCCCCC">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>
+						<label class="view_direction_name"></label>&nbsp; 已有的车次
+					</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body"
+					style="background-color: #fbfbfb; margin: 0px 10px 10px 10px;">
+					<div class="widget-box">
+						<div class="widget-header" style="font-size: 15px; color: #478fca">
+							<h5>&nbsp; 查询条件</h5>
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse"> <i
+									class="icon-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+						<div class="widget-body" style="background-color: #fbfbfb;">
+							<div class="widget-main">
+								<div class="row ">
+									<div class="col-xs-12 ">
+										<div class="col-xs-12 col-sm-4 ">
+											<label for="form-field-mask-4 " class="lab1"> 头次：</label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_titleno"
+													name="titleNo" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4">
+											<label for="form-field-mask-4 " class="lab1"> 始发站： </label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_startstation"
+													name="startStationId" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4" style="padding-buttom: 10px;">
+											<label for="form-field-mask-4 " class="lab1"> 终到站：</label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_endstation"
+													name="endStationId" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12"
+										style="border: 0px #cccccc solid; margin: -1px 0px 8px 0px; padding-top: 10px;">
+										<div class="col-md-12 col-xs-12 center">
+											<button id="viewquery-button" class="btn btn-primary btn-sm "
+												type="button"
+												style="height: 36px; text-align: center; margin-left: 10px;">
+												<i class="icon-search"></i> 查询
+											</button>
+											<button id="viewquery-reset-button"
+												class="btn btn-primary btn-sm " type="reset"
+												style="height: 36px; text-align: center; margin-left: 10px;">
+												<i class="icon-undo bigger-110"></i> 重置
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 10px;">
+						<div class="col-xs-12">
+							<div class="widget-box transparent">
+								<div class="widget-header"
+									style="background-color: #478fca; font-size: 15px; color: #ffffff">
+									<h5>&nbsp; 查询结果&nbsp; &nbsp;</h5>
+									<div class="widget-toolbar">
+										<a href="#" data-action="collapse"> <i
+											class="icon-chevron-up"></i>
+										</a>
+									</div>
+								</div>
+								<div style="margin-left: 20px;">
+									<label><input type="radio" value="1" name="radio" checked="checked" />操作已选择的 </label>&nbsp;
+									<label><input type="radio" value="2" name="radio" />操作全部数据 </label>&nbsp;
+								</div>
+								<div class="widget-body">
+									<div
+										class="widget-main padding-0 no-padding-left no-padding-right">
+										<div id="query-grid-table-div">
+											<table id="viewquery-grid-table"></table>
+											<div id="viewquery-grid-pager"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 10px;">
+			<div class="widget-box" style="border: 3px solid #CCCCCC">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>
+						<label class="view_direction_name"></label>&nbsp; 没有的车次
+					</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body"
+					style="background-color: #fbfbfb; margin: 0px 10px 10px 10px;">
+					<div class="widget-box">
+						<div class="widget-header" style="font-size: 15px; color: #478fca">
+							<h5>&nbsp; 查询条件</h5>
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse"> <i
+									class="icon-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+						<div class="widget-body" style="background-color: #fbfbfb;">
+							<div class="widget-main">
+								<div class="row ">
+									<div class="col-xs-12 ">
+										<div class="col-xs-12 col-sm-4 ">
+											<label for="form-field-mask-4 " class="lab1"> 头次：</label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_titleno1"
+													name="notInTitleNo" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4">
+											<label for="form-field-mask-4 " class="lab1"> 始发站： </label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_startstation1"
+													name="notInStartStation" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-4" style="padding-buttom: 10px;">
+											<label for="form-field-mask-4 " class="lab1"> 终到站：</label>
+											<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+												<select class="form-control" id="query_endstation1"
+													name="notInEndStation" data-placeholder="请选择..."></select>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12"
+										style="border: 0px #cccccc solid; margin: -1px 0px 8px 0px; padding-top: 10px;">
+										<div class="col-md-12 col-xs-12 center">
+											<button id="querynot-button" class="btn btn-primary btn-sm "
+												type="button"
+												style="height: 36px; text-align: center; margin-left: 10px;">
+												<i class="icon-search"></i> 查询
+											</button>
+											<button id="querynot-reset-button"
+												class="btn btn-primary btn-sm " type="reset"
+												style="height: 36px; text-align: center; margin-left: 10px;">
+												<i class="icon-undo bigger-110"></i> 重置
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-top: 10px;">
+						<div class="col-xs-12">
+							<div class="widget-box transparent">
+								<div class="widget-header"
+									style="background-color: #478fca; font-size: 15px; color: #ffffff">
+									<h5>&nbsp; 查询结果&nbsp; &nbsp;</h5>
+									<div class="widget-toolbar">
+										<a href="#" data-action="collapse"> <i
+											class="icon-chevron-up"></i>
+										</a>
+									</div>
+								</div>
+								<div style="margin-left: 20px;">
+									<input type="radio" value="1" name="notInRadio"
+										checked="checked" /><label> 操作已选择的 </label>&nbsp;<input
+										type="radio" value="2" name="notInRadio" /><label>
+										操作全部数据 </label>&nbsp;
+								</div>
+								<div class="widget-body">
+									<div
+										class="widget-main padding-0 no-padding-left no-padding-right">
+										<div id="query-grid-table-div">
+											<table id="querynot-grid-table"></table>
+											<div id="querynot-grid-pager"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="directionId" name="directionId" />
+	</form>
+	<div style="padding-bottom: 10px; text-align: right"
+		class="col-md-12 col-xs-12 left">
+		<button id="view-back-button" class="btn btn-primary btn-sm "
+			type="button"
+			style="height: 36px; text-align: center; margin-left: 10px;">
+			<i class="icon-arrow-left"></i> 返回
+		</button>
+	</div>
+	<script src="abic/reins/traindirection/js/traindirectionview.js"></script>
+</body>
+</html>

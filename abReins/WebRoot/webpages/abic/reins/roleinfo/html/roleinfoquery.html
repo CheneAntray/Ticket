@@ -1,0 +1,80 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>车站票务综合分析管理平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<form id="query-form">
+		<div class="row">
+			<div class="widget-box">
+				<div class="widget-header" style="font-size:15px; color:#478fca">
+					<h5>&nbsp; 查询条件</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color:#fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<div class="col-xs-12 ">
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 角色名称：</label>
+									<div class="col-sm-9 col-md-8" style="padding-left:0px; top:-4px;">
+										<input id="query_rolename" name="rolename" type="text" class="form-control "></input>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12" style="border:0px #cccccc solid; margin:-1px 0px 8px 0px; padding-top:10px;">
+								<div class="col-md-12 col-xs-12 center">
+									<button id="query-button" class="btn btn-primary btn-sm " type="button" style="height:36px; text-align:center ; margin-left:10px;">
+										<i class="icon-search"></i> 查询
+									</button>
+									<button id="query-reset-button" class="btn btn-primary btn-sm " type="reset" style="height:36px; text-align:center ; margin-left:10px;">
+										<i class="icon-undo bigger-110"></i> 重置
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top:10px;">
+				<div class="col-xs-12">
+					<div class="widget-box transparent">
+						<div class="widget-header" style="background-color:#478fca;font-size:15px; color:#ffffff">
+							<h5>&nbsp; 查询结果&nbsp; &nbsp;</h5>
+							<div class="widget-toolbar">
+								<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+								</a>
+							</div>
+						</div>
+						<div class="widget-body">
+							<div class="widget-main padding-0 no-padding-left no-padding-right">
+								<div id="query-grid-table-div">
+									<table id="query-grid-table"></table>
+									<div id="query-grid-pager"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row " style="border:0px #cccccc solid; margin:-1px 0px 8px 0px; padding-top:30px">
+					<div style=" padding-bottom:10px;text-align:right" class="col-md-12 col-xs-12 left">
+						<div class="hr hr8 hr-double hr-dotted"></div>
+						<button id="query-add-button" class="btn btn-primary btn-sm " type="button" style="height:36px; text-align:center ; margin-left:10px;">
+							<i class="icon-plus-sign"></i> 新增
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="abic/reins/roleinfo/js/roleinfoquery.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>车站票务综合分析管理平台</title>
+</head>
+<body>
+	<input type="hidden" name="oauth-token" id="oauth-token" value="" />
+	<form class="form-horizontal" role="form" id="edit-station">
+		<div class="row">
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 站段统计信息</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<!-- widget-header -->
+							<div class="col-xs-16 ">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 站段月统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data1" name="stationMonth"
+												type="text" data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 站段年统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data2" name="stationYear"
+												type="text" data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="hr hr8 hr-double hr-dotted"></div>
+			<div style="padding-bottom: 10px; text-align: right"
+				class="col-md-12 col-xs-12 left">
+				<button id="edit-save-station" class="btn btn-primary btn-sm "
+					type="button"
+					style="height: 36px; text-align: center; margin-left: 10px;">
+					<i class="icon-ok"></i> 保存
+				</button>
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" role="form" id="edit-TStation">
+		<div class="row">
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 售票站统计信息</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<!-- widget-header -->
+							<div class="col-xs-16 ">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 售票站月统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data3" name="TStationMonth"
+												type="text" data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 售票站年统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data4" name="TStationYear"
+												type="text" data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="hr hr8 hr-double hr-dotted"></div>
+			<div style="padding-bottom: 10px; text-align: right"
+				class="col-md-12 col-xs-12 left">
+				<button id="edit-save-TStation" class="btn btn-primary btn-sm "
+					type="button"
+					style="height: 36px; text-align: center; margin-left: 10px;">
+					<i class="icon-ok"></i> 保存
+				</button>
+			</div>
+		</div>
+	</form>
+	<form class="form-horizontal" role="form" id="edit-train">
+		<div class="row">
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 车次统计信息</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<!-- widget-header -->
+							<div class="col-xs-16 ">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 车次月统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data5" name="trainMonth"
+												type="text" data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1" style="width:130px;"> 车次年统计日期：
+									</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker"
+												id="data6" name="trainYear" type="text"
+												data-date-format="yyyy-mm-dd" /> <span
+												class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="hr hr8 hr-double hr-dotted"></div>
+			<div style="padding-bottom: 10px; text-align: right"
+				class="col-md-12 col-xs-12 left">
+				<button id="edit-save-train" class="btn btn-primary btn-sm "
+					type="button"
+					style="height: 36px; text-align: center; margin-left: 10px;">
+					<i class="icon-ok"></i> 保存
+				</button>
+			</div>
+		</div>
+	</form>
+	<script src="abic/reins/timedtask/js/timedtask.js"></script>
+</body>
+</html>

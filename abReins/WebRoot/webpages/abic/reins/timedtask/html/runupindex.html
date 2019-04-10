@@ -1,0 +1,42 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+<title>车站票务综合分析管理平台</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<div class="breadcrumbs" id="breadcrumbs">
+		<ul class="breadcrumb" style="color:#000000">
+			<li>
+				<i class="icon-map-marker home-icon" style="color:#aeafb0"></i>
+				<label style="color:#000000">系统管理</label>
+			</li>
+			<li>
+				<label style="color:#000000">定时任务补跑</label>
+			</li>
+		</ul>
+	</div>
+	<div class="page-content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="step-content row-fluid position-relative" id="step-container">
+					<div class="step-pane active">
+						<!-- 查詢頁面部分 -->
+						<div id="query-div" class="form-horizontal"></div>
+						<!-- 新增頁面部分 -->
+						<div id="mng-div" class="form-horizontal hide"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form>
+			<input type="hidden" id="select_userid" />
+		</form>
+	</div>
+	<script src="abic/reins/timedtask/js/runupindex.js"></script>
+</body>
+</html>

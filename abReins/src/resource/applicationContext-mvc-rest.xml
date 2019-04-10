@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/mvc   
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 自动扫描@Controller注入为bean -->
+	<context:component-scan base-package="com.*.controllers,com.*.*.controllers">
+		<!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射 -->
+	<mvc:annotation-driven />
+	<!-- 对静态资源文件的访问 不支持访问WEB-INF目录 -->
+	<mvc:default-servlet-handler />
+	<!-- 视图解析 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:prefix="/WEB-INF/views/" p:suffix=".jsp" /> -->
+		
+	<!-- 设置报表解析器的优先级 start -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<!-- 设置优先级最高，最先开始解析 -->
+		<property name="order" value="1" />
+	</bean>
+	<!-- 设置报表解析器的优先级 end -->
+	
+	<!-- 解析报表模版文件 start -->
+	<bean id="iReportView" class="com.xianqin.controllers.ApplicationIReportView"> 
+        <!-- <property name="url" value="jasper/MyReport.jasper"/>  -->
+        <property name="reportDataKey" value="jrMainDataSource"/> 
+        <property name="exporterParameters">  <!-- 渲染时的相关参数 -->  
+            <map>  
+                <entry key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.IMAGES_URI" value="/image?image="/>  <!-- HTML时的白色背景图片(px)路径 -->  
+                <entry key="net.sf.jasperreports.engine.export.JRHtmlExporterParameter.CHARACTER_ENCODING" value="UTF-8"/>  
+            </map>  
+        </property>
+    </bean>
+	<!-- 解析报表模版文件 end -->
+		
+		
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<!-- 返回的视图模型数据需要经过jstl来处理 -->
+		<property name="order" value="2" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<!-- 查找视图页面的前缀和后缀（前缀[逻辑视图名]后缀），比如传进来的逻辑视图名为index，则该该jsp视图页面应该存放在“WEB-INF/views/index.jsp” -->
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<!-- 返回json数据，@response使用 -->
+	<!-- 以下为SpringMVC配置 <mvc:annotation-driven> <mvc:message-converters register-defaults="true"> 
+		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> <value>text/html;charset=UTF-8</value> 
+		<value>application/json;charset=UTF-8</value> </list> </property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> -->
+
+	<!-- 输出对象转JSON支持 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="stringConverter" />
+				<ref bean="jsonConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="jsonConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>text/json;charset=UTF-8</value>  
+                <value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+		<property name="objectMapper">    
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">  
+                        <!-- 处理responseBody 里面日期类型 -->    
+                        <property name="dateFormat">    
+                            <bean class="java.text.SimpleDateFormat">    
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />    
+                            </bean>    
+                        </property>   
+                        <!-- 为null字段时不显示 -->  
+                        <property name="serializationInclusion">  
+                            <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>  
+                        </property>   
+                    </bean>    
+                </property>  
+	</bean>
+	<bean id="stringConverter"
+		class="org.springframework.http.converter.StringHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/plain;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
+    <!-- 支持上传文件 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+</beans>

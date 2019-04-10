@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>车站票务综合分析管理平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- basic styles -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+<!-- page specific plugin styles -->
+
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/font-googleapis.css" />
+
+<!-- ace styles -->
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+<link rel="stylesheet" href="assets/css/chosen.css" />
+<link rel="stylesheet" href="assets/css/datepicker.css" />
+<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="assets/css/select2.css" />
+
+<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+<!-- inline styles related to this page -->
+
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+<!--[if !IE]> -->
+
+<!-- <script src="assets/js/jquery-2.0.3.min.js"></script>  -->
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<!-- <script src="assets/js/jquery-1.10.2.min.js"></script> -->
+<!-- <script src="assets/js/jquery-3.2.1.min.js"></script> -->
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+
+<!-- <script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-1.11.1.min.js'>"+"<"+"script>");
+		</script> -->
+
+<!-- <![endif]-->
+
+<!--[if IE]> -->
+<script type="text/javascript">
+	window.jQuery
+			|| document.write("<script src='assets/js/jquery-1.11.1.min.js'>"
+					+ "<"+"script>");
+</script>
+<!-- <![endif]-->
+
+
+</head>
+
+<body>
+	<div class="navbar navbar-default" id="navbar">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('navbar', 'fixed')
+			} catch (e) {
+			}
+		</script>
+
+		<div class="navbar-container" id="navbar-container">
+			<div class="navbar-header pull-left" style="height: 55PX;">
+				<ul class="ace-nav2" style="border: 0px">
+					<li class="a"></li>
+				</ul>
+				<!-- /.brand -->
+			</div>
+			<!-- /.navbar-header -->
+
+			<div class="navbar-header pull-right" role="navigation">
+				<form id="main-login-form">
+					<input id="main_refreshflag" type="hidden" value="0" /> <input
+						id="main_useraccount" type="hidden" name="useraccount" /> <input
+						id="main_comcode" type="hidden" name="comcode" /> <input
+						id="main-access-url" type="hidden" name="accessurl"
+						value="about:blank" />
+					<ul class="ace-nav1 nav1 ">
+						<li class="ace-nav1" style="width: 70px;"><a
+							id="main-logout-button" href="#" class=""> <i
+								class="icon-signin bigger-120" style="color: #f2f6f9"></i> <span
+								class="bigger-110">退出</span>
+						</a></li>
+						<li class="ace-nav1" style="padding-right: 10px; color: #f2f6f9">
+							<i class="icon-user bigger-120" style="color: #f2f6f9"></i> <span
+							id="main_username"></span>
+						</li>
+					</ul>
+				</form>
+				<!-- /.ace-nav -->
+			</div>
+			<!-- /.navbar-header -->
+		</div>
+		<!-- /.container -->
+	</div>
+
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.check('main-container', 'fixed')
+			} catch (e) {
+			}
+		</script>
+
+		<div class="main-container-inner">
+			<a class="menu-toggler" id="menu-toggler" href="#"> <span
+				class="menu-text"></span>
+			</a>
+
+			<div class="sidebar" id="sidebar">
+				<script type="text/javascript">
+					try {
+						ace.settings.check('sidebar', 'fixed')
+					} catch (e) {
+					}
+				</script>
+
+				<div class="sidebar-shortcuts" id="sidebar-shortcuts"></div>
+				<!-- #sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+				
+				</ul>
+				<!-- /.nav-list -->
+				<div class="sidebar-collapse" id="sidebar-collapse">
+					<i class="icon-double-angle-left"
+						data-icon1="icon-double-angle-left"
+						data-icon2="icon-double-angle-right"></i>
+				</div>
+
+				<script type="text/javascript">
+					try {
+						ace.settings.check('sidebar', 'collapsed')
+					} catch (e) {
+					}
+				</script>
+			</div>
+
+			<div class="main-content" id="divframe">
+				<!-- PAGE CONTENT BEGINS -->
+
+				<!-- PAGE CONTENT ENDS -->
+			</div>
+
+			<a href="#" id="btn-scroll-up"
+				class="btn-scroll-up btn btn-sm btn-inverse"> <i
+				class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div>
+		</div>
+		<!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script type="text/javascript">
+			if ("ontouchend" in document)
+				document
+						.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+								+ "<"+"script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript"
+			src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/jquery.slimscroll.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.sparkline.min.js"></script>
+		<script type="text/javascript" src="assets/js/flot/jquery.flot.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/flot/jquery.flot.resize.min.js"></script>
+
+		<script type="text/javascript" src="assets/js/chosen.jquery.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+		<script type="text/javascript"
+			src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+		<script type="text/javascript"
+			src="assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+
+		<script type="text/javascript"
+			src="assets/js/validator/jquery.validate.min.js"></script>
+		<script type="text/javascript"
+			src="assets/js/validator/messages_zh.js"></script>
+		<!-- ace scripts -->
+
+		<script type="text/javascript" src="assets/js/ace-elements.min.js"></script>
+		<script type="text/javascript" src="assets/js/ace.min.js"></script>
+		<script type="text/javascript" src="assets/js/select2.min.js"></script>
+		<script type="text/javascript" src="base/security/js/dictionary.js"></script>
+		<script type="text/javascript" src="base/security/js/common.js"></script>
+		<script type="text/javascript" src="base/security/js/perfectLoad.js"></script>
+		<script type="text/javascript" src="base/security/js/jqgridjson.js"></script>
+		<script type="text/javascript" src="base/security/js/ajaxjson.js"></script>
+		<script type="text/javascript" src="base/security/js/main.js"></script>
+		<script type="text/javascript"
+			src="base/security/js/selectdateutil.js"></script>
+		<!-- inline scripts related to this page -->
+		<!--  测试用调试JS -->
+		<script type="text/javascript" src="test.js"></script>
+</body>
+</html>
+

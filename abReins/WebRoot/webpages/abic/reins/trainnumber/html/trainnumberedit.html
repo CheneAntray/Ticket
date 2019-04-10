@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>车站票务综合分析管理平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<form class="form-horizontal" role="form" id="edit-form">
+		<input id="edit_activeflag" name="activeflag" type="hidden"
+			class="form-control" /> <input id="edit_id" name="id" type="hidden"
+			class="form-control" /> <input id="edit_useraccount"
+			name="useraccount" type="hidden" class="form-control" /> <input
+			id="edit_timestampflag" name="timestampflag" type="hidden"
+			class="form-control" />
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 基本信息</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<!-- widget-header -->
+							<div class="col-xs-12 ">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1"> <span
+										class="red" style=""></span>车次编号：
+									</label>
+									<div class="col-sm-9 col-md-8" style="padding-left: 0px; top:-4px;">
+										<label id="edit_trainNumber" name="edit_trainNumber" type="text"
+											class="form-control "></label>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1"> 起始站：</label>
+									<div class="col-sm-9 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control tooltip-warning"
+											data-rel="tooltip" data-placement="top"
+											id="edit_startStation" name="edit_startStation"
+											data-placeholder="请选择..."></select>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1"> 终点站：</label>
+									<div class="col-sm-9 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control tooltip-warning"
+											data-rel="tooltip" data-placement="top"
+											id="edit_endStation" name="edit_endStation"
+											data-placeholder="请选择..."></select>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1"> 担当企业：</label>
+									<div class="col-sm-9 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control tooltip-warning"
+											data-rel="tooltip" data-placement="top"
+											id="edit_underTake" name="edit_underTake"
+											data-placeholder="请选择..."></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="hr hr8 hr-double hr-dotted"></div>
+				<div style="padding-bottom: 10px; text-align: right"
+					class="col-md-12 col-xs-12 left">
+					<button id="edit-save-button" class="btn btn-primary btn-sm "
+						type="button"
+						style="height: 36px; text-align: center; margin-left: 10px;">
+						<i class="icon-ok"></i> 保存
+					</button>
+					<button id="edit-back-button" class="btn btn-primary btn-sm "
+						type="button"
+						style="height: 36px; text-align: center; margin-left: 10px;">
+						<i class="icon-arrow-left"></i> 返回
+					</button>
+				</div>
+			</div>
+	</form>
+	<script src="abic/reins/trainnumber/js/trainnumberedit.js"></script>
+</body>
+</html>

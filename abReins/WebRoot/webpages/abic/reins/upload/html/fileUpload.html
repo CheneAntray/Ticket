@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>车站票务综合分析管理平台</title>
+</head>
+<body>
+    <input type="hidden" name="oauth-token" id="oauth-token" value=""/>
+    <label style="height: 36px; text-align: center; margin-left: 15px; margin-top: 20px;">数据日期:</label>
+    <input type="date" id="fileDate" name="TStationMonth"  style="height: 26px; margin-left: 15px; margin-top: 20px;"/>
+	<input type="file" name="file" id="fileToUpload" style="height: 36px; text-align: center; margin-left: 10px; margin-top: 20px;" />
+	<!-- <input type="button" value="上传" id="startFileUploadBtn" /> -->
+	<button id="startFileUploadBtn" class="btn btn-primary btn-sm "
+		type="button"
+		style="height: 36px; text-align: center; margin-left: 10px; margin-top: 20px;">
+		<i class="icon-upload-alt"></i> 上传
+	</button>
+    <script src="abic/reins/upload/js/fileUpload.js"></script>
+</body>
+</html>

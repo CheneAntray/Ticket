@@ -1,0 +1,154 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>ABIC再保险业务管理平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<form id="query-form">
+		<div class="row">
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 查询条件</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<div class="col-xs-12 ">
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 选择报表：</label>
+									<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control" id="report_code" onchange="reportCode_Change()"
+											name="report_code" data-placeholder="请选择..." />
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 起始时间：</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker" id="start_date"
+												name="start_date" type="text" data-date-format="yyyy-mm-dd" />
+											<span class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 结束时间：</label>
+									<div class="col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<div class="input-group">
+											<input class="form-control date-picker" id="end_date"
+												name="end_date" type="text" data-date-format="yyyy-mm-dd" />
+											<span class="input-group-addon"> <i
+												class="icon-calendar bigger-110"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12" id="direction">
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1">车次方向：</label>
+									<div class="col-xs-12 col-sm-12 col-md-8"
+										style="padding-left: 0px; top:-4px;">
+										<select class="form-control" id="select_direction"
+											name="select_direction" data-placeholder="请选择..."></select>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 车次编号：</label>
+									<div class="col-sm-9 col-md-8" style="padding-left: 0px; top:-4px;">
+										<input id="trainNumber_direction" name="trainNumber_direction"
+											type="text" class="form-control "></input>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12" id="station">
+								<div class="col-xs-12 col-sm-4 ">
+									<label for="form-field-mask-4 " class="lab1"> 站段：</label>
+									<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control" id="select_stationId"
+											name="select_stationId" data-placeholder="请选择..." />
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-4">
+									<label for="form-field-mask-4 " class="lab1"> 售票站：</label>
+									<div class="col-xs-12 col-sm-12 col-md-8" style="padding-left: 0px; top:-4px;">
+										<select class="form-control" id="select_tickStationId"
+											name="select_tickStationId" data-placeholder="请选择..." />
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12"
+								style="border: 0px #cccccc solid; margin: -1px 0px 8px 0px; padding-top: 10px;">
+								<div class="col-md-12 col-xs-12 center">
+									<button id="query-button" class="btn btn-primary btn-sm "
+										type="button"
+										style="height: 36px; text-align: center; margin-left: 10px;">
+										<i class="icon-search"></i> 查询
+									</button>
+									<button id="query-reset-button" class="btn btn-primary btn-sm "
+										type="reset"
+										style="height: 36px; text-align: center; margin-left: 10px;">
+										<i class="icon-undo bigger-110"></i> 重置
+									</button>
+								</div>
+							</div>
+							<div class="widget-body" style="background-color: #fbfbfb;">
+								<div class="widget-main">
+									<div class="row ">
+										<div class="col-xs-12"
+											style="border: 0px #cccccc solid; margin: -1px 0px 8px 0px; padding-top: 10px;">
+											<div class="col-md-12 col-xs-12 center">
+												<button id="report-PDF-button"
+													class="btn btn-primary btn-sm " type="button"
+													style="height: 35px; width: 20%; text-align: center; font-size: 1.25em; margin-right: 10%;">
+													PDF模版</button>
+												<button id="report-HTML-button"
+													class="btn btn-primary btn-sm " type="reset"
+													style="height: 35px; width: 20%; text-align: center; font-size: 1.25em; margin-right: 5%;">
+													HTML模版</button>
+												<button id="report-EXECL-button"
+													class="btn btn-primary btn-sm " type="reset"
+													style="height: 35px; width: 20%; text-align: center; font-size: 1.25em; margin-left: 5%;">
+													EXECL模版下载</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="widget-box">
+				<div class="widget-header" style="font-size: 15px; color: #478fca">
+					<h5>&nbsp; 模版展示</h5>
+					<div class="widget-toolbar">
+						<a href="#" data-action="collapse"> <i class="icon-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="widget-body" style="background-color: #fbfbfb;">
+					<div class="widget-main">
+						<div class="row ">
+							<iframe id="reportIframe" name="reportIframe" frameborder=0
+								scrolling="yes" width="100%" height="1000px"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="abic/reins/reportdefined/js/reportdefinedquery.js"></script>
+</body>
+</html>
